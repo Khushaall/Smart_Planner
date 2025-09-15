@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Custom global styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(
+  135deg,
+  #FFD89A 0%,   /* bright golden-peach */
+  #9B5CFF 40%,  /* neon violet */
+  #020012 100%  /* very dark indigo-black */
+);
+  color: #fff;
+}
+
+.avatar-orbit {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(255,255,255,0.3);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+
+.glow {
+  background: radial-gradient(circle, #FF2E9D, #6A3FFB);
+  padding: 10px;
+  border-radius: 50%;
+}
