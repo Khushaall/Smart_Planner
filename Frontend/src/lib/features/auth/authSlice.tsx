@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AuthState {
     isLoggedIn: boolean;
-    user: {};
+    user: null;
     loading: boolean;
     error: null;
 }
@@ -20,18 +20,18 @@ const initialState = {
 
 // })
 
-export const AuthSlice = createSlice({
+export const authSlice = createSlice({
     name: "auth",
     initialState,
 
     reducers: {
-        loginSuccess: (state, action: PayloadAction<{ null }>) => {
+        loginSuccess: (state) => {
             state.isLoggedIn = true;
             // state.user = action.payload;
             state.error = null;
 
         },
-        logoutSuccess:(state)=>{
+        logout:(state)=>{
             state.isLoggedIn = false;
             state.user=null;
         },
@@ -58,3 +58,6 @@ export const AuthSlice = createSlice({
 
 
 })
+export const { loginSuccess, logout } = authSlice.actions;
+const authReducer = authSlice.reducer;
+export default authReducer;
