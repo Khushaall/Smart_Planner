@@ -1,1 +1,1 @@
-export const BACKEND_URL = ""
+export const BACKEND_URL = "http://localhost/smart_planner/backend/api/register.php"

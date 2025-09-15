@@ -1,0 +1,55 @@
+# OS / IDE files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Composer dependencies
+/vendor/
+/composer.lock
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# WAMP / XAMPP / Cache
+/wamp64/
+/tmp/
+/cache/
+/logs/
+
+# PHPUnit / Coverage
+.phpunit.result.cache
+.phpunit.cache/
+/coverage/
+
+# IDE settings
+/.idea/
+/.vscode/
+/nbproject/
+
+# Node modules (if using frontend together)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Uploaded files (if stored locally)
+uploads/
+*.sql
+*.sqlite
+*.db
+
+# PHPStorm / VSCode specific
+*.iml
+*.sublime-workspace
+*.sublime-project
+
+# System generated
+*.seed
+*.pid
+*.pid.lock
