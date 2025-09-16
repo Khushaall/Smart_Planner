@@ -2,7 +2,7 @@
 
 import Button from "@/components/buttons";
 import CustomModal from "@/components/customModal";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
     <CustomModal isOpen={showLoginModal} title="Welcome" isLogin={true} onClose={()=>setShowLoginModal(false)}></CustomModal>
     <CustomModal isOpen={showSignupModal} title="Welcome" isRegister={true} onClose={()=>setShowSignupModal(false)}></CustomModal>
 
-      <div className="min-h-screen min-w-screen relative flex flex-col">
+      <div className="min-h-screen min-w-screen relative flex flex-col bg-gradient-to-tr from-[#FFD89A] via-[#9B5CFF] to-[#020012]">
         <div className="flex justify-between items-center px-16 pt-8 text-white">
           <div className="text-xl tracking-tighter">Smart Planner</div>
 
