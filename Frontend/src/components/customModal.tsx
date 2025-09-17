@@ -4,6 +4,9 @@ import { ReactElement, useState } from "react";
 import Input from "./input";
 import { X } from "lucide-react";
 import Button from "./buttons";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/lib/store";
+import { login, register } from "@/lib/features/auth/authSlice";
 
 interface ModalProps {
   isOpen?: boolean;
@@ -23,10 +26,48 @@ export default function CustomModal({
   isRegister,
   isTicket,
 }: ModalProps) {
+
+
   const [mode, setMode] = useState<"login" | "register" | "ticket" | "">(
     isLogin ? "login" : isRegister ? "register" : isTicket ? "ticket" : ""
   );
 
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch<AppDispatch>();
+
+  async function handleLogin() {
+    try {
+      await dispatch(login({
+        email,
+        password
+      })).unwrap();
+
+    } catch (err) {
+      alert("Error" + err)
+    }
+
+
+  }
+
+  async function handleRegister() {
+
+    try {
+      await dispatch(register({
+        username,
+        email,
+        password
+      })).unwrap();
+
+    } catch (err) {
+      alert("Error" + err)
+    }
+  }
+
+  async function handleTicket() {
+
+  }
   return (
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center 
@@ -48,16 +89,16 @@ export default function CustomModal({
         <div className="mt-4 flex flex-col gap-2 p-2 ">
           {mode === "register" && (
             <>
-              <Input type="text" placeholder="Username" />
-              <Input type="email" placeholder="Email" />
+              <Input type="text" onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
+              <Input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
             </>
           )}
-          {mode === "login" && <Input type="email" placeholder="Email" />}
-          <Input type="password" placeholder="Password" />
+          {mode === "login" && <Input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" />}
+          <Input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
         </div>
 
         <div className="mt-2 p-2 pb-2">
-          <Button className="w-full rounded-md" size="lg" variant="special">
+          <Button className="w-full rounded-md" size="lg" variant="special" onClick={isLogin ? handleLogin : isRegister ? handleRegister : handleTicket}>
             {isLogin ? "Log In" : isRegister ? "Sign Up" : "Add Ticket"}
           </Button>
 
