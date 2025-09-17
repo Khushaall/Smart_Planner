@@ -2,11 +2,13 @@
 
 import Navbar from "@/components/navbar";
 import TaskTable from "@/components/taskTable";
+import { RootState } from "@/lib/store";
 import { redirect } from "next/navigation";
+import { useSelector } from "react-redux";
 
 export default function Page({ params }: { params: { id: string } }) {
 
-  const isLoggedIn = true;
+  const isLoggedIn = useSelector((state:RootState)=>state.auth);
 
   if (!isLoggedIn) {
     redirect("/");
